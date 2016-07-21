@@ -1,0 +1,61 @@
+/*******************************
+Run this script to create all tables for the 
+MyStore database
+********************************/
+
+
+--Create Table
+--Items
+CREATE TABLE [dbo].[Items](
+	[Item_ID] [int] IDENTITY(1,1) Primary Key NOT NULL,
+	[Item_Name] [varchar](200) NULL,
+	[Item_Section] [varchar](200) NULL,
+	[Item_Price] [money] NULL)
+
+
+--Create Table
+--Employee
+CREATE TABLE [dbo].[Employee](
+	[Employee_ID] [int] IDENTITY(1,1) Primary Key NOT NULL,
+	[Employee_Name] [varchar](200) NULL)
+
+
+--Create Table
+--Sales
+CREATE TABLE [dbo].[Sales](
+	[Sales_ID] [int] IDENTITY(1,1) Primary Key NOT NULL,
+	[Sale_Date] [datetime] NULL,
+	[Employee_ID] [int] Foreign Key (Employee_ID) references Employee NULL,
+	[Item_ID] [int] Foreign Key (Item_ID) references Items NULL)
+
+
+--Create Table
+--DIM_Metrics
+CREATE TABLE [dbo].[DIM_Metrics](
+	[Metric_ID] [int] IDENTITY(1,1) Primary Key NOT NULL,
+	[Metric_Name] [varchar](200) NULL,
+	[Metric_Format] [varchar](20) NULL)
+
+
+--Create Table
+--FACT_Metrics
+CREATE TABLE [dbo].[FACT_Metrics](
+	[ID] [int] IDENTITY(1,1) Primary Key NOT NULL,
+	[Metric_ID] [int] FOREIGN KEY([Metric_ID]) REFERENCES [dbo].[DIM_Metrics] ([Metric_ID]) NOT NULL,
+	[Metric_Date] [datetime] NULL,
+	[Metric_Value] [float] NULL)
+
+
+--Create Table
+--DIM_Date
+CREATE TABLE [dbo].[DIM_Date](
+	[Date_Key] [datetime] Primary Key NOT NULL,
+	[Year_Number] [smallint] NULL,
+	[Quarter_Number] [tinyint] NULL,
+	[Month_Number] [tinyint] NULL,
+	[Day_Number] [tinyint] NULL,
+	[Month_Name] [varchar](20) NULL,
+	[Day_Name] [varchar](20) NULL,
+	[First_Of_Month] [datetime] NULL,
+	[Last_Of_Month] [datetime] NULL)
+

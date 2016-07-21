@@ -1,0 +1,8 @@
+http://msi/ReportServer_LANCE_SQLSERVER (set this as url inside SSDT)
+http://msi/Reports_LANCE_SQLSERVER (graphical UI where you can configure your reporting server - i.e., user access - note that you cannot set this as the url in SSDT projects & use the Report)
+
+to grant regular user access, navigate to reporting url (in my case: http://msi/Reports_LANCE_SQLSERVER) and set permissions at site and folder level to your user (just the username, without prefix... for me, 'lfallo1' and NOT 'msi/lfallo1'
+
+custom login for sql server reporting tools that I set inside the sql server reporting tools configuration manager
+username: MSI/lfallo1
+password: $noopy3431

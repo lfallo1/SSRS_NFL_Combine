@@ -1,0 +1,42 @@
+ /**********************************
+Use this script to populate values
+into the table of the MyStore database
+***********************************/
+
+--Employee Table
+insert Employee values('Bob')
+insert Employee values('Frank')
+insert Employee values('Sue')
+insert Employee values('Jill')
+insert Employee values('Pat')
+
+--Items Table
+insert Items values('TV','Video',400.00)
+insert Items values('DVD Player','Video',50.00)
+insert Items values('Projector','Video',1000.00)
+insert Items values('Universal Remote','Video',50.00)
+insert Items values('Video Cables','Video',50.00)
+insert Items values('Speakers','Audio',250.00)
+insert Items values('Amplifier','Audio',150.00)
+insert Items values('Subwoofer','Audio',150.00)
+insert Items values('Audio Cables','Audio',50.00)
+insert Items values('MP3 Player','Audio',100.00)
+insert Items values('Desktop','Computers',600.00)
+insert Items values('Laptop','Computers',700.00)
+insert Items values('Tablet','Computers',400.00)
+insert Items values('Monitor','Computers',200.00)
+insert Items values('Router','Computers',100.00)
+insert Items values('DVD','Media',10.00)
+insert Items values('Blu Ray','Media',20.00)
+insert Items values('Console Game','Media',60.00)
+insert Items values('CD','Media',15.00)
+insert Items values('Vinyl','Media',15.00)
+insert Items values('Washer','Appliances',400.00)
+insert Items values('Dryer','Appliances',400.00)
+insert Items values('Stove','Appliances',500.00)
+insert Items values('Microwave','Appliances',250.00)
+insert Items values('Refrigerator','Appliances',800.00) 
+
+--DIM_Metrics Table
+insert into dim_metrics values('Average Sales per Day by Month','N2')
+insert into dim_metrics values('Average Revenue per Day by Month','C') 

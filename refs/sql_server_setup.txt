@@ -1,0 +1,11 @@
+instance_name: LANCE_SQLSERVER (MSI\LANCE_SQLSERVER)
+
+auth mode: mixed
+
+distributed-replay-client controller name: DistributedClientController
+
+users:
+sa
+Snoopy08
+
+lfallo1 (has admin access)

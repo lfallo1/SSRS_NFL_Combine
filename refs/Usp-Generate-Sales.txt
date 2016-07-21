@@ -1,0 +1,16 @@
+
+CREATE procedure [dbo].[usp_Generate_Sales] @Quantity int as
+
+--Declare and initialize Counter
+declare @Counter int
+set @Counter = 1
+
+--Loop through the specified number of times
+while (@Counter <= @Quantity)
+begin
+	--Create a sale of a random item by a random employee on a random date
+	insert sales values (convert(date,dateadd(day, rand()*-365, getdate())), rand() * 5 + 1, rand() * 25 + 1)
+	
+	--Increment Counter for the loop
+	set @Counter = @Counter + 1
+end

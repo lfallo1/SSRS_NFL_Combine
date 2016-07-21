@@ -1,0 +1,34 @@
+
+CREATE procedure [dbo].[usp_Generate_Metrics] as
+
+--Clear table
+truncate table Fact_Metrics
+
+
+--Metric 1 - Average Sales per Day by Month
+insert Fact_Metrics
+select top 12 --Get the most recent 12 months
+1, --Metric_ID
+d.First_Of_Month, --Group days into months
+count(*) / convert(float, count(distinct d.Date_Key)) --Count of sales divided by days in month
+from dim_date d
+left join sales s
+on s.Sale_Date = d.date_key
+where d.Date_Key <= getdate() --Get sales up the current day
+group by d.First_Of_Month
+order by d.First_Of_Month desc --Sort most recent dates first
+
+--Metric 2 - Average Revenue per Day by Month
+insert Fact_Metrics
+select top 12 --Get the most recent 12 months
+2, --Metric_ID
+d.First_Of_Month, --Group days into months
+sum(item_price) / convert(float, count(distinct d.Date_Key)) --Count of sales divided by days in month
+from dim_date d
+left join sales s 
+on s.Sale_Date = d.date_key
+inner join items i
+on s.Item_ID = i.Item_ID
+where d.Date_Key <= getdate() --Get sales up the current day
+group by d.First_Of_Month
+order by d.First_Of_Month desc --Sort most recent dates first

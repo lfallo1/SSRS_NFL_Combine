@@ -1,0 +1,28 @@
+
+CREATE procedure [dbo].[usp_Generate_DIM_Date] @Start_Date datetime, @End_Date datetime as
+
+--Clean existing table
+truncate table DIM_Date
+
+--Initialize our iterator
+declare @Current_Date datetime
+set @Current_Date = @Start_Date
+
+--Begin iteration
+while (@Current_Date <= @End_Date)
+begin
+	insert DIM_Date values(
+		@Current_Date,                     --TheDate
+		datepart(year, @Current_Date),     --Year_Number
+		datepart(quarter, @Current_Date),  --Quarter
+		datepart(month, @Current_Date),    --Month_Number
+		datepart(day, @Current_Date),      --Day_Number
+		datename(month, @Current_Date),    --Month_Name
+		datename(weekday, @Current_Date),  --Day_Name
+		convert(datetime, str(DATEPART(year, @Current_Date)) + '-' + str(datepart(month, @Current_Date)) + '-01'), --First_Of_Month
+		dateadd(day, -1, dateadd(month, 1, convert(datetime, str(DATEPART(year, @Current_Date)) + '-' + str(datepart(month, @Current_Date)) + '-01'))) --Last_Of_Month
+	)
+
+	--Increment iterator
+	set @Current_Date = dateadd(day, 1, @Current_Date)
+end

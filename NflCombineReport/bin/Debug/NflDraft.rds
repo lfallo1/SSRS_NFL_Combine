@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="NflDraft">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=MSI\LANCE_SQLSERVER;Initial Catalog=NflDraft</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>f2e2cd69-100a-47cf-ab4c-cbbe1b3da79c</DataSourceID>
+</RptDataSource>
