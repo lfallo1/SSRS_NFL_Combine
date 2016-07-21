@@ -70,6 +70,41 @@
                   </Textbox>
                 </CellContents>
               </TablixCornerCell>
+              <TablixCornerCell>
+                <CellContents>
+                  <Textbox Name="Textbox15">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value />
+                            <Style>
+                              <FontFamily>Tahoma</FontFamily>
+                              <FontWeight>Bold</FontWeight>
+                              <Color>White</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style />
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox15</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Color>LightGrey</Color>
+                        <Style>Solid</Style>
+                      </Border>
+                      <BackgroundColor>#6e9eca</BackgroundColor>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixCornerCell>
             </TablixCornerRow>
           </TablixCornerRows>
         </TablixCorner>
@@ -115,7 +150,7 @@
                                 <FontWeight>Normal</FontWeight>
                                 <Format>0.0;(0.0)</Format>
                                 <TextDecoration>Underline</TextDecoration>
-                                <Color>=iif(Fields!ExpertGrade.Value &gt; 6,"LimeGreen", iif(Fields!ExpertGrade.Value &gt; 5, "DarkBlue", "Red"))</Color>
+                                <Color>=iif(Avg(Fields!ExpertGrade.Value) &gt; 6,"LimeGreen", iif(Avg(Fields!ExpertGrade.Value) &gt; 5, "DarkBlue", "Red"))</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -249,6 +284,31 @@
                   </Textbox>
                 </CellContents>
               </TablixHeader>
+              <TablixMembers>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>1in</Size>
+                    <CellContents>
+                      <Subreport Name="GradesByConferenceGroupedByPosition">
+                        <ReportName>GradesByConferenceGroupedByPosition</ReportName>
+                        <Parameters>
+                          <Parameter Name="ParamConference">
+                            <Value>=Fields!conference.Value</Value>
+                          </Parameter>
+                        </Parameters>
+                        <Style>
+                          <Border>
+                            <Style>None</Style>
+                          </Border>
+                        </Style>
+                      </Subreport>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixMember>
+              </TablixMembers>
               <DataElementOutput>Output</DataElementOutput>
               <KeepTogether>true</KeepTogether>
             </TablixMember>
@@ -259,15 +319,15 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>0.37in</Top>
         <Height>0.46in</Height>
-        <Width>2in</Width>
+        <Width>3in</Width>
         <ZIndex>1</ZIndex>
         <Style />
       </Tablix>
     </ReportItems>
-    <Height>1.04in</Height>
+    <Height>4.9675in</Height>
     <Style />
   </Body>
-  <Width>5in</Width>
+  <Width>7.03in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>

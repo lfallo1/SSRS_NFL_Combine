@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>NflCombine</DataSourceReference>
+      <CommandText>SELECT p.ParticipantId, p.firstname, p.lastname, p.height, p.weight, p.hands, p.overview, p.strengths, p.weaknesses, p.comparision, p.BottomLine, p.WhatScoutsSay, p.ExpertGrade, p.link, p.pick, pos.name AS position, poscat.name AS position_category, c.name AS college, 
+             conf.name AS conference, workoutResults.result AS result, workouts.Name
+FROM   dbo.Participants AS p LEFT OUTER JOIN
+             dbo.Colleges AS c ON p.CollegeId = c.CollegeId LEFT OUTER JOIN
+             dbo.Conferences AS conf ON c.ConferenceId = conf.ConferenceId LEFT OUTER JOIN
+             dbo.Positions AS pos ON p.PositionId = pos.PositionId LEFT OUTER JOIN
+             dbo.PositionCategories AS poscat ON pos.CategoryId = poscat.PositionCategoryId LEFT OUTER JOIN
+             dbo.WorkoutResults AS workoutResults ON p.ParticipantId = workoutResults.ParticipantId INNER JOIN
+			 dbo.Workouts AS workouts ON workoutResults.WorkoutId = workouts.WorkoutId
+			 WHERE workoutResults.Result is not null
+			 order by p.ParticipantId</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="ParticipantId">
+        <DataField>ParticipantId</DataField>
+        <rd:TypeName>System.Int64</rd:TypeName>
+      </Field>
+      <Field Name="firstname">
+        <DataField>firstname</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="lastname">
+        <DataField>lastname</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="height">
+        <DataField>height</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="weight">
+        <DataField>weight</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="hands">
+        <DataField>hands</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+      <Field Name="overview">
+        <DataField>overview</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="strengths">
+        <DataField>strengths</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="weaknesses">
+        <DataField>weaknesses</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="comparision">
+        <DataField>comparision</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="BottomLine">
+        <DataField>BottomLine</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="WhatScoutsSay">
+        <DataField>WhatScoutsSay</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ExpertGrade">
+        <DataField>ExpertGrade</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+      <Field Name="link">
+        <DataField>link</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="pick">
+        <DataField>pick</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="position">
+        <DataField>position</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="position_category">
+        <DataField>position_category</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="college">
+        <DataField>college</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="conference">
+        <DataField>conference</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="result">
+        <DataField>result</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+      <Field Name="Name">
+        <DataField>Name</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

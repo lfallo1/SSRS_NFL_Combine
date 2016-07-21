@@ -16,6 +16,14 @@
       <Name>Conferences.rsd</Name>
       <FullPath>Conferences.rsd</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>Workouts.rsd</Name>
+      <FullPath>Workouts.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>IndividualResults.rsd</Name>
+      <FullPath>IndividualResults.rsd</FullPath>
+    </ProjectItem>
   </DataSets>
   <Reports>
     <ProjectItem>
@@ -33,6 +41,22 @@
     <ProjectItem>
       <Name>PlayerByConfAndPos.rdl</Name>
       <FullPath>PlayerByConfAndPos.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>WorkoutAveragesByPosition.rdl</Name>
+      <FullPath>WorkoutAveragesByPosition.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>WorkoutAverages.rdl</Name>
+      <FullPath>WorkoutAverages.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>ConferencePositionsMatrix.rdl</Name>
+      <FullPath>ConferencePositionsMatrix.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GradesByConferenceGroupedByPosition.rdl</Name>
+      <FullPath>GradesByConferenceGroupedByPosition.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>
